@@ -1,0 +1,102 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Itim', cursive;
+}
+
+#top-menu {
+    border-bottom: 3px solid rgb(255, 126, 39);
+    height: 135px;
+    width: 100%;
+}
+
+#logo {
+    height: 130px;
+    width: 80%;
+    background-image: url(../images/logo.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.top-menu-items {
+    float: left;
+    user-select: none;
+}
+
+.signin-items {
+    height: 50px;
+    width: 50px;
+    margin: 5px 0 5px;
+    position: relative;
+    border-radius: 50%;
+    text-align: center;
+}
+
+.signin-items p {
+    position: absolute;
+    top: 42px;
+}
+
+
+#login {
+    background-image: url(../images/login-icon.png);
+    background-size: contain;
+}
+
+#signup {
+    background-image: url(../images/signup-icon.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#signup p {
+    top: 45px;
+}
+
+#bottom-menu {
+    position: fixed;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    user-select: none;
+}
+
+.bottom-buttons {
+    position: relative;
+    top: 10px;
+    height: 30px;
+    line-height: 30px;
+    margin: 0 5px 5px;
+    padding: 2px;
+    float: left;
+    cursor: pointer;
+    background-color: white;
+    color: orange;
+    font-size: 15px;
+    transition: all 0.3s;
+}
+
+.bottom-buttons:hover {
+    background-color: #ccc;
+    color: rgb(0, 0, 179);
+    transform: translateY(-3px);
+    opacity: 0.7;
+}
+
+.container-pages {
+    display: none;
+    visibility: hidden;
+}
+
+#home-page {
+    display: block;
+    visibility: visible;
+}
+
+
+
+
