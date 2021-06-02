@@ -1,29 +1,35 @@
-const _userName = new WeakMap();
-const _userEmail = new WeakMap();
-const _userPassword = new WeakMap();
-const _userId = new WeakMap();
-const _userLoggedIn = new WeakMap();
-
-class User {
+export default class User {
     constructor(username, email, password) {
-        _userName.set(this, username);
-        _userEmail.set(this, email);
-        _userPassword.set(this, password);
-        _userId.set(this, User.incrementId);
-        _userLoggedIn.set(this, false);
+        this._username = username;
+        this._email = email;
+        this._password = password;
+        this._userId = User.incrementId;
+        this._isLoggedIn = false;
+
+        this._userInfo = [];
+        this._userInfo.push(this._username, this._email, this._password);
+        localStorage.setItem('Minberg-Coding_'+this._username+'\'s info', this._userInfo);
+        // localStorage.setItem('Minberg-Coding_'+this._username+'\'s email', this._email);
+        // localStorage.setItem('Minberg-Coding_'+this._username+'\'s password', this._password);
     }
 
     static incrementId() {
         if (!this.latestId) this.latestId = 1;
         else this.latestId++;
         return this.latestId;
-      }
+    }
 
-    getInfo(index) {
-        const info = [_userName.get(this), _userEmail.get(this), _userPassword.get(this), _userId.get(this), _userLoggedIn.get(this)];
-        return info[index]
+    login() {
+        if(this._isLoggedIn) return;
+        console.log('User has logged In!');
+        this._isLoggedIn = true;
+        localStorage.setItem('Minberg-Coding_loggedIn', true);
+    }
+
+    logout() {
+        if(!this._isLoggedIn) return;
+        console.log('User has logged out!');
+        this._isLoggedIn = false;
+        localStorage.setItem('Minberg-Coding_loggedIn', false);
     }
 }
-
-
-export { User };
